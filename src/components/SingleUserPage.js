@@ -1,17 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 
 class SingleUserPage extends Component {
-  state = {userData: []};
   static propTypes = {
     id: PropTypes.string.isRequired,
   };
+  state = { userData: [] };
 
   componentDidMount() {
     // fetch `/api/users/${id}` to get user and then set state...
     fetch(`/api/users/${this.props.id}`)
       .then(response => response.json())
       .then(value => {
-      	const newData = [];
+        const newData = [];
         if (typeof value.error === 'undefined') {
           newData.push(<li key={1}>NAME: {value.name}</li>);
           newData.push(<li key={2}>AGE: {value.age}</li>);

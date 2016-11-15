@@ -5,7 +5,7 @@ class UsersPage extends Component {
   state = { userList: [] };
   componentDidMount() {
     // fetch `/api/users` to get users and then set state...
-    fetch(`/api/users`)
+    fetch('/api/users')
       .then(response => response.json())
       .then(value => {
         const users = value.users;
@@ -15,10 +15,10 @@ class UsersPage extends Component {
 
           let hrefStr;
           for (let i = 0; i < length; i += 1) {
-            hrefStr = `#/users/${i+1}`;
+            hrefStr = `#/users/${i + 1}`;
             tmpUser.push(
               <li key={i}><a href={hrefStr}>
-              {users[i].avatar}: {users[i].name} ({users[i].age})
+                {users[i].avatar}: {users[i].name} ({users[i].age})
               </a></li>
             );
           }

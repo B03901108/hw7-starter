@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-const userList = { 
+const userList = {
   users: [
     { avatar: 'http://xxx.com', name: 'John', age: 23 },
     { avatar: 'http://xxx.com', name: 'Amy', age: 18 },
@@ -16,7 +16,7 @@ router.get('/users/:id', (req, res) => {
   const users = userList.users;
 
   if (isNaN(id)) res.json({ error: 'non-numerical id' });
-  else if (id !== parseInt(id)) res.json({ error: 'non-integer id' });
+  else if (id !== parseInt(id, 10)) res.json({ error: 'non-integer id' });
   else if ((id < 1) || (id > users.length)) res.json({ error: 'id out of range' });
   else res.json(users[id - 1]);
 });
