@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   renderRoute() {
-    if (this.state.route === '/users') {
+    if ((this.state.route === '/users') || (this.state.route === '/users/')) {
       return <UsersPage />;
     }
 
